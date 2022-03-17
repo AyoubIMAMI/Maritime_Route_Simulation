@@ -1,0 +1,26 @@
+on: [push, pull_request]
+name: Twitter, together!
+jobs:
+  preview:
+    name: Preview
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: gr2m/twitter-together@v1.x
+        env:
+          GITHUB_TOKEN: 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
+  tweet:
+    name: Tweet
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    steps:
+      - name: checkout master
+        uses: actions/checkout@v2
+      - name: Tweet
+        uses: gr2m/twitter-together@v1.x
+        env:
+          GITHUB_TOKEN: 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
+          TWITTER_ACCESS_TOKEN: 1496996441822216203-9jhv8b7FW55Qtxha7Id6roHtQJIizr
+          TWITTER_ACCESS_TOKEN_SECRET: lVKK9EJEsLihZVuWcHxLIohkmPY2ECi3Y1Fwi1d1CbY6E
+          TWITTER_API_KEY: 9DGgXzl3GES4scRrzmKMgOkiw
+          TWITTER_API_SECRET_KEY: fiXyMXs1rvjM9CdB3O18eldT8eVm79FnYGxiQKN4iCucYCZ4YD
