@@ -1,0 +1,19 @@
+name: "Tweet about Push"
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tweet
+        uses: twwd/twitter-github-action@v1
+        with:
+          twitter_api_key: 9DGgXzl3GES4scRrzmKMgOkiw
+          twitter_api_secret_key: fiXyMXs1rvjM9CdB3O18eldT8eVm79FnYGxiQKN4iCucYCZ4YD
+          twitter_access_token: 1496996441822216203-9jhv8b7FW55Qtxha7Id6roHtQJIizr
+          twitter_access_token_secret: lVKK9EJEsLihZVuWcHxLIohkmPY2ECi3Y1Fwi1d1CbY6E
+          tweet_body: |
+            I'm alive...
